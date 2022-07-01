@@ -1,43 +1,25 @@
 #include <iostream>
 #include <iomanip>
-/*
- * Write a program that prints a section of the ASCII character set table. The program
-first asks the user for input of two numbers (which should be between 32 and
-255). Then the program prints the code of the character and the corresponding
-character of the given range, e.g. in the following way:
-Please enter lower limit: 40
-Please enter upper limit: 45
-Code Character
-40 '('
-41 ')'
-42 '*'
-43 '+'
-44 ','
-45 '-'
- */
-int inputUser(){
-    int temp{};
-    std:: cin >> temp;
-    if(temp >= 32 && temp <= 255 ){
-        return temp;
-    }else{
-        return 0;
-    }
 
-}
 
 int main() {
-    std::cout << "Please enter lower limit: " << std::endl;
-    int lowerLimit = inputUser();
-    std::cout << "Please enter upper limit: " << std::endl;
-    int upperLimit = inputUser();
-    if(lowerLimit && upperLimit) {
-        std::cout << "Code " << " Character" << std::endl;
-        for (int s = lowerLimit; s <= upperLimit; ++s) {
-            std::cout << std::setw(3) << s << std::setw(7)<< "\'" << static_cast<char>(s)<<"\'" << std::endl;
-        }
-    }else{
-        std::cout << "Please insert a number between 32 and 255" << std::endl;
+    /*a) What is the value of the variable x after the following program section */
+    int n = 3;
+    double x;
+    x = (2 / n) * 3.0;
+    std::cout << x; // 0
+
+   /* b) The following loop does not behave as the programmer expected.
+            Why? How often does the loop run?  Explain in detail!
+        The signed integer  i will be converted to unsigned. And because unsigned integers can not store negative numbers,
+         -2 wrapping around to a number close to the top of the range of a 4-byte integer.(4294967294)
+            */
+    unsigned int limit = 10;
+    for (int i = -2; i < limit; i++)
+    {
+        std::cout << i;
     }
+    int i = -2;
+    bool  y = i < limit;
     return 0;
 }
